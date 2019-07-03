@@ -21,7 +21,7 @@ if (isset($_GET['numeroA']) && isset($_GET['numeroB'])) {
 
 }else{
 
-	echo "Introduce correcatamente los valores";
+	echo "Introduce correctamente los valores";
 }
 
 

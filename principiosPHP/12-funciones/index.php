@@ -86,13 +86,30 @@
 
 	//ejercicio 4 correcta sintaxis
 	// ya que la funcion siempre debe devolver un valor y no debe tener instrucciones de impresion en la misma funcion
-	function devuelveElNombre($nombre){
 
-		return "El nombre es : $nombre";
+	function getNombre($nombre){
+		$texto = "El nombre es: $nombre";
+
+		return $texto;
+	}
+
+	function getApellidos($apellidos){
+		$texto = "Los apellidos son: $apellidos";
+
+		return $texto;
+	}
+
+
+	function devuelveElNombre($nombre, $apellidos){
+		#anidar funcion
+		$texto = getNombre($nombre)
+					."<br>".
+					getApellidos($apellidos);
+		return $texto;
 
 	}
 
-	echo devuelveElNombre("Samuel Vazquez");
+	echo devuelveElNombre("Samuel","Vazquez Ruiz");
 
 
  ?>
