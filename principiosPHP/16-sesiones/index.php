@@ -1,0 +1,24 @@
+<?php 
+
+	/*
+		SESIONES:
+		PERIODO DE TIEMPO QUE EL USUARIO PERMANECE EN LA PAGINA SIN NECESIDAD DE IDENTIFICARSE MIENTRAS ESTA EN LA PAGINA:
+
+		DEBE SOPORTAR DOS COSAS
+		-SESION PERSISTE HASTA QUE USUARIO CIERRE SESION O EL NAVEGADOR
+		-GUARDAR INFORMACION
+	*/
+
+	//INICIAR LA SESION	
+
+		session_start();
+
+		#VARIABLE LOCAL
+		$variable_normal = "Soy una cadena de texto";
+
+		#VARIABLE DE SESION
+		$_SESSION['variable_persistente'] = "HOLA SOY UNA SESION ACTIVA";
+
+		echo $variable_normal."<br>";
+		echo $_SESSION['variable_persistente'];
+ ?>
