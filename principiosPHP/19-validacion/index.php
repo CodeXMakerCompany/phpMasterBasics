@@ -7,16 +7,26 @@
 	<body>
 		<h1>Validar formularios en PHP</h1>
 
-		<form action="POST" action="procesar_formulario.php">
+		<?php 
+			if (isset($_GET['error'])) {
+				$error = $_GET['error'];
+
+				if ($error == 'faltan_valores') {
+					echo '<strong style="color: red">Faltan valores</strong>';
+				}
+			}
+		 ?>
+
+		<form method="POST" action="procesar_formulario.php">
 			
 			<label for="nombre">Nombre:</label><br>
-			<input type="text" name="nombre" required="required" pattern="[A-Za-z]+" /><br>
+			<input type="text" name="nombre" pattern="[A-Za-z]+" /><br>
 
 			<label for="apellidos">Apellidos:</label><br>
-			<input type="text" name="apellidos" required="required" pattern="[A-Za-z]+"/><br>
+			<input type="text" name="apellidos" pattern="[A-Za-z]+"/><br>
 
 			<label for="edad">Edad:</label><br>
-			<input type="number" name="edad" required="required" pattern="[0-9]+"/><br>
+			<input type="number" name="edad"pattern="[0-9]+"/><br>
 
 			<label for="correo">Correo:</label><br>
 			<input type="email" name="correo" required="required" /><br>
