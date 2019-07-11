@@ -40,5 +40,11 @@
 	*/
 
 	//renombrar fichero
-	rename('fichero_copiado.txt','archivito_recopiadito.doc');
+	//rename('fichero_copiado.txt','archivito_recopiadito.doc');
+
+	if (file_exists("fichero_texto.txt")) {
+		echo "El archivo existe";
+	}
+
+	
  ?>
