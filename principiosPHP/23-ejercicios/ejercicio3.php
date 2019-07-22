@@ -5,7 +5,8 @@
 	con dos inputs y cuatro botones
 	Uno para sumar dividir restar y multiplicar
 	 */
-	if (!empty($_POST['n1']) && !empty($_POST['n1'])) {
+	if (!empty($_POST['n1']) && !empty($_POST['n2'])) {
+
  					$resultado = false;
 
  				if (isset($_POST['sumar'])) {
@@ -43,11 +44,14 @@
  	</head>
  	<body>
 
+ 		<h2>Calculadora básica</h2>
+
  		<form action="ejercicio3.php" method="POST">
  			
  			
  			<label for="n1">Valor1</label>
  			<input type="number" name="n1">
+ 			<br>
 
  			<label for="n2">Valor2</label>
  			<input type="number" name="n2">
@@ -60,9 +64,11 @@
  			<hr>
 
  			<?php
+ 			
+
 
  			if ($resultado != false) {
- 				echo $resultado;
+ 				echo "$resultado";
  			}
 
  			 ?>
