@@ -32,5 +32,5 @@
 
 		echo "Error: ".mysql_error($conexion);
 	}*/
-
+	
  ?>
