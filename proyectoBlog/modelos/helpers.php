@@ -12,15 +12,21 @@
 
 	function borrarErrores(){
 
-    	unset($_SESSION['errores']);
+		$borrado = false;
+
+    	if (isset($_SESSION['errores'])) {
+    		$_SESSION['errores'] = null;
+    		$borrado = true;
+    	}
 
     	if (isset($_SESSION['errores_entrada'])) {
     		$_SESSION['errores_entrada'] = null;
+			$borrado = true;
     	}
 
     	if (isset($_SESSION['completado'])) {
     		$_SESSION['completado'] = null;
-    		unset($_SESSION['completado']);
+			$borrado = true;
     	}
     	
 
@@ -42,14 +48,38 @@
 
 	}
 
-	function mostrarUltimasEntradas($db){
+	function conseguirCategoria($db, $id){
+
+		$sql = "SELECT * FROM categorias WHERE id = $id;";
+		$categorias = mysqli_query($db, $sql);
+
+		$result = array();
+		if ($categorias && mysqli_num_rows($categorias) >= 1) {
+			
+			$result = mysqli_fetch_assoc($categorias);
+
+		}
+
+		return $result;
+
+	}
+
+	function mostrarEntradas($db, $limit = null, $categoria = null){
 
 		//Se separa así por la concatenacion de la consulta
 		$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
 
-           "INNER JOIN categorias c ON e.categoria_id = c.id ".
+           "INNER JOIN categorias c ON e.categoria_id = c.id ";
 
-           "ORDER BY e.id DESC LIMIT 4"; 
+         if (!empty($categoria)) {
+           		$sql .= "WHERE e.categoria_id = $categoria";
+           }
+
+        	$sql .= " ORDER BY e.id DESC ";  
+
+        if ($limit) {
+            	$sql .= 'LIMIT 4';
+            }      
 
 		$entradas = mysqli_query($db, $sql);
 
@@ -63,4 +93,6 @@
 		return $entradas;				
 
 	}
+
+	
  	

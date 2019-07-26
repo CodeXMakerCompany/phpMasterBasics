@@ -209,12 +209,12 @@
 	#principal{
 		float: left;
 		width: 70%;
-		min-height: 550px;
 		background: white;
 		border-radius: 5px;
 		box-shadow: 0px 2px 2px #000000;
 		padding: 20px;
 		overflow: hidden;
+		margin-bottom: 30px;
 	}
 
 	#principal h1{
@@ -270,14 +270,14 @@
 
 		clear:both;
 		width: 85%;
-		margin: 0 auto;
-		margin-top: 120px;
+		margin: auto;
+		margin-top: 250px;
 		color: white;
 		background-color: black;
 		border: #c9c9c9;
 		border-bottom: none;
 		border-radius: 8px 8px 0px 0px;
-		padding: 20px;
+		padding: 30px;
 		text-align: center;
 	}
 

@@ -1,13 +1,14 @@
-<?php include_once 'conexion.php'; ?>
-<?php include_once 'helpers.php'; ?>
+<?php include_once 'modelos/cabecera.php'; ?>
+
+<?php require_once 'modelos/lateral.php'; ?>
 
 <div id="principal">
 				
-				<h1>Ultimas entradas</h1>
+				<h1>Todas las entradas</h1>
 				
 				<?php 
 
-					$entradas = mostrarEntradas($db, true);
+					$entradas = mostrarEntradas($db, null);
 
 					if (!empty($entradas)) :
 
@@ -32,12 +33,5 @@
 
 					endif;	
 				 ?>
-				
-
-				<div id="ver-todas">
-				<a href="entradas.php">Ver todas las entradas</a>
-
-			</div>
-
-
-			</div>	
+	<?php require_once 'modelos/footer.php'; ?>	
+	 

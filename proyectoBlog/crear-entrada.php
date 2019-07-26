@@ -51,7 +51,7 @@
 				</form>
 			<?php  borrarErrores(); ?>	
 </div>
-
+</div>	
 
 <!-- PIE DE PÁGINA -->
 		<?php require_once 'modelos/footer.php'; ?>		

@@ -11,7 +11,7 @@
 
 						<a href="crear-entrada.php" class="boton boton-A"> Crear entradas</a>
 						<a href="crear-categoria.php" class="boton boton-A0"> Crear categorías</a>
-						<a href="cerrar.php" class="boton boton-B"> Perfil</a>
+						<a href="perfil.php" class="boton boton-B"> Perfil</a>
 						<a href="cerrar.php" class="boton boton-C"> Cerrar sesión</a>
 
 					</div>
