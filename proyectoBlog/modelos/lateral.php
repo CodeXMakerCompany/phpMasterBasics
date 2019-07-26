@@ -1,6 +1,16 @@
 <?php require_once 'helpers.php'; ?>
+
 <!-- BARRA LATERAL -->
 			<aside id="sidebar">
+
+				<div id="buscador" class="block-aside">
+					<h3>Buscar</h3>
+
+					<form action="buscar.php" method="POST">
+						<input type="text" name="search">
+						<input type="submit" value="Buscar">
+					</form>
+				</div>
 
 				<?php if (isset($_SESSION['usuario'])) : ?>
 					<div id="usuario_logeado" class="block-aside">

@@ -80,7 +80,7 @@
 			return $resultado;				
 	}
 
-	function mostrarEntradas($db, $limit = null, $categoria = null){
+	function mostrarEntradas($db, $limit = null, $categoria = null, $busqueda = null){
 
 		//Se separa así por la concatenacion de la consulta
 		$sql = "SELECT e.*, c.nombre AS 'categoria' FROM entradas e ".
@@ -88,14 +88,18 @@
            "INNER JOIN categorias c ON e.categoria_id = c.id ";
 
          if (!empty($categoria)) {
-           		$sql .= "WHERE e.categoria_id = $categoria";
+           		$sql .= "WHERE e.categoria_id = $categoria ";
            }
 
-        	$sql .= " ORDER BY e.id DESC ";  
+         if (!empty($busqueda)) {
+           		$sql .= "WHERE e.titulo LIKE '%$busqueda%' ";
+           }  
+
+        	$sql .= "ORDER BY e.id DESC ";  
 
         if ($limit) {
             	$sql .= 'LIMIT 4';
-            }      
+            }         
 
 		$entradas = mysqli_query($db, $sql);
 
