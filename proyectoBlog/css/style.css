@@ -151,7 +151,8 @@
 	}
 
 	input[type="button"],
-	input[type="submit"]{
+	input[type="submit"],
+	.boton{
 		display: block;
 		border-radius: 10px;
 		color: white;
@@ -161,6 +162,46 @@
 		cursor: pointer;
 		width: 100px;
 		margin-top: 30px; 
+	}
+
+	.boton{
+
+		width: 90%;
+		text-align: center;
+		box-shadow: 0px 0px 1px #000000, 0px 3px 7px #000000, 0px 6px 14px #ccc;
+	}
+
+	.boton-A{
+		background: #00e600;
+		border: 1px solid #00e600;
+		font-size: 18px;
+	}
+
+	.boton-A0{
+		background: #3366ff;
+		border: 1px solid #3366ff;
+		font-size: 18px;
+	}
+	
+	.boton-B{
+		background: #ffd11a;
+		border: 1px solid #ffd11a;
+		font-size: 18px;
+
+	}
+
+	.boton-C{
+		background: #ff471a;
+		border: 1px solid #ff471a;
+		font-size: 18px;
+
+	}
+
+	.boton-A:hover, .boton-A0:hover, .boton-B:hover, .boton-C:hover{
+		cursor: pointer;
+		border: 2px solid #000000;
+		text-shadow: 0px 0px 0px black, -1px -1px 0px black, -2px -2px 0px black;
+		font-size: 20px;
 	}
 
 	/*PRINCIPAL*/
@@ -217,6 +258,12 @@
 		margin-top: 30px; 
 	}
 
+	.fecha{
+		color: #ffc299;
+		margin-top: 5px;
+		font-size: 18px; 
+	}
+
 	/*FOOTER*/
 	
 	#pie{
@@ -233,3 +280,26 @@
 		padding: 20px;
 		text-align: center;
 	}
+
+	/*Alertas*/
+
+	.alerta{
+		padding: 5px;
+		font-size: 14px;
+		color: white;
+		background: #00e600;
+		box-shadow: 0px 1px 3px #ccc;
+		margin-bottom: 10px;
+		border-radius: 2px;
+	}
+
+	.alerta-error{
+		padding: 5px;
+		font-size: 14px;
+		color: white;
+		background: #ff8000;
+		box-shadow: 0px 1px 3px #ccc;
+		margin-bottom: 10px;
+		border-radius: 2px;
+	}
+

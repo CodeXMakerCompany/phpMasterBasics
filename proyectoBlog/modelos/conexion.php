@@ -11,6 +11,10 @@
 
 	// INICIAR LA SESION
 	
-	session_start();
+	if (!isset($_SESSION)) {
+
+ 		session_start();
+
+ 	}
 
  ?>

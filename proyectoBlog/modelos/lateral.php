@@ -1,8 +1,38 @@
 <?php require_once 'helpers.php'; ?>
 <!-- BARRA LATERAL -->
 			<aside id="sidebar">
+
+				<?php if (isset($_SESSION['usuario'])) : ?>
+					<div id="usuario_logeado" class="block-aside">
+						
+						<h3><?= "Bienvenido : ".$_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellidos']; ?></h3>
+
+						<!-- Botones -->
+
+						<a href="crear-entrada.php" class="boton boton-A"> Crear entradas</a>
+						<a href="crear-categoria.php" class="boton boton-A0"> Crear categorías</a>
+						<a href="cerrar.php" class="boton boton-B"> Perfil</a>
+						<a href="cerrar.php" class="boton boton-C"> Cerrar sesión</a>
+
+					</div>
+				<?php endif; ?>
+				
+				<!-- Condicion de esconder cajas -->
+				
+
+				<?php if (!isset($_SESSION['usuario'])) : ?>
+
 				<div id="login" class="block-aside">
 					<h3>Identificate</h3>
+
+				<?php if (isset($_SESSION['error_login'])) : ?>
+
+					<div class="alerta alerta-error">
+						<h3><?=$_SESSION['error_login']; ?></h3>
+					</div>
+
+				<?php endif; ?>
+
 					<form action="login.php" method="POST">
 						<label for="email">Email</label>
 						<input type="email" name="email">
@@ -15,6 +45,25 @@
 				</div>	
 				<div id="register" class="block-aside">	
 					<h3>Registrate</h3>
+
+					<!-- Mostrar errores -->
+							
+					<?php if (isset($_SESSION['completado'])) : ?>
+
+						<div class="alerta alerta-exito">
+						<?php  echo $_SESSION['completado']; ?>	
+						</div>
+
+					<?php elseif(isset($_SESSION['errores']['general'])): ?>
+
+						<div class="alerta alerta-error">
+						<?php  echo $_SESSION['errores']['general']; ?>	
+						</div>
+
+					<?php endif; ?>
+
+					<!-- Fin mostrar errores -->	
+					
 					<form action="registro.php" method="POST">
 						<label for="nombre">Nombre</label>
 						<input type="text" name="nombre">
@@ -42,4 +91,5 @@
 
 					<?php borrarErrores(); ?>
 				</div>
+				<?php endif; ?>
 			</aside>
