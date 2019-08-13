@@ -1,123 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Eshop</title>
-	<link rel="stylesheet" href="dist/css/styles.css">
-	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
-</head>
-<body>
-
-<div id="container">
-<!-- CABECERA -->
-<header id="header">
-	<div id="logo">
-		<img src="dist/assets/img/logo.jpg" class="img-responsive" alt="logo">
-		<a href="index.php">
-			Tienda Online
-		</a>
-	</div>
-</header>
+<?php 
+	session_start();
+	require_once 'config/conexion.php';
+	require_once 'autoload.php';
+	require_once 'config/parameters.php';
+	require_once 'helpers/utils.php';
+	require_once 'views/layout/header.php';
+	require_once 'views/layout/sidebar.php';
 
 
-<!-- MENU -->
-<nav id="menu">
-	<ul>
-		<li>
-		<a href="#">Inicio</a>	
-		</li>
-		<li>
-		<a href="#">Cat 1</a>	
-		</li>
-		<li>
-		<a href="#">Cat 2</a>	
-		</li>
-		<li>
-		<a href="#">Cat 3</a>	
-		</li>
-		<li>
-		<a href="#">Cat 4</a>	
-		</li>
-		<li>
-		<a href="#">Cat 5</a>	
-		</li>
-		<li>
-		<a href="#">Cat 6</a>	
-		</li>
-	</ul>
-</nav>
+	function show_error(){
+		$error = new errorController();
+		$error->index();
+	}
 
-<div id="content">
 
-<!-- BARRA LATERAL -->
-<aside id="lateral">
-		<div id="login" class="block_aside">
-			<h3>Identificarse</h3>
-			<form action="" method="POST">
-				<label for="">email</label>
-				<input type="email" name="email">
-				<label for="">password</label>
-				<input type="password" name="password">
+	if (isset($_GET['controller'])) {
+		$nombre_controlador = $_GET['controller'].'Controller';
+	}elseif (!isset($_GET['controller']) && !isset($_GET['action'])) {
+		$nombre_controlador = controller_default;
+	}else{
+		show_error();
+		exit();
+	}
+	
 
-				<input type="submit" value="enviar">
-			</form>
-			<ul>
-				<li><a href="">Mis pedidos</a></li>
-				<li><a href="">Gestionar pedidos</a></li>
-				<li><a href="">Gestionar Categorias</a></li>
-				<li><a href="">Mis pedidos</a></li>
-			</ul>			
-		</div>
-</aside>
+if (class_exists($nombre_controlador)) {
+	
+	$controlador = new $nombre_controlador();
 
-<!-- CONTENIDO CENTRAL -->
+	if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
+		$action =  $_GET['action'];
 
-<div id="central">
-	<h1>Productos destacados</h1>
-	<div class="product">
-		<img src="dist/assets/img/logo.jpg" alt="">
-		<h2>Producto A</h2>
-		<p> 300 mxn</p>
-		<a href="" class="button">Comprar</a>
-	</div>
-	<div class="product">
-		<img src="dist/assets/img/logo.jpg" alt="">
-		<h2>Producto A</h2>
-		<p> 300 mxn</p>
-		<a href="" class="button">Comprar</a>
-	</div>
-	<div class="product">
-		<img src="dist/assets/img/logo.jpg" alt="">
-		<h2>Producto A</h2>
-		<p> 300 mxn</p>
-		<a href="" class="button">Comprar</a>
-	</div>
-	<div class="product">
-		<img src="dist/assets/img/logo.jpg" alt="">
-		<h2>Producto A</h2>
-		<p> 300 mxn</p>
-		<a href="" class="button">Comprar</a>
-	</div>
-	<div class="product">
-		<img src="dist/assets/img/logo.jpg" alt="">
-		<h2>Producto A</h2>
-		<p> 300 mxn</p>
-		<a href="" class="button">Comprar</a>
-	</div>
+		$controlador->$action();
+	}elseif (!isset($_GET['controller']) && !isset($_GET['action'])) {
+		$action_default = action_default;
+		$controlador->$action_default();
+	}else{
+		show_error();
+	}
 
-</div>
-	</div>
-
-		<!-- PIE DE PÁGINA -->
-		<div class="footer" id="footer">
-			<p>Desarrollado por Codexmaker&copy <?=date('Y') ?></p>
-		</div>
-
-</div>		
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="dist/js/bootstrap.min.js"></script>	
-</body>
-</html>
-
+}else{
+	show_error();
+}
+	
+require_once 'views/layout/footer.php';  	

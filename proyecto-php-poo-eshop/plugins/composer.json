@@ -1,5 +1,6 @@
 {
     "require": {
-        "twbs/bootstrap": "^4.3"
+        "twbs/bootstrap": "^4.3",
+        "realrashid/sweet-alert": "^2.0"
     }
 }

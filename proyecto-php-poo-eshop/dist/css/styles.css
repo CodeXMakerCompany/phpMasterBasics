@@ -157,12 +157,17 @@
 	}
 
 	/*Formulario */
+	
+	.form_container{
+		width: 50%;
+	}	
 
 	label,
 	input[type="text"],
 	input[type="password"],
 	input[type="email"],
-	select{
+	input[type="number"],
+	select, textarea{
 		display: block;
 		width: 95%;
 		margin-top: 2px;
@@ -212,6 +217,22 @@
 	.button:hover{
 		border-color: black;
 		box-shadow: 0px 2px 2px black, 4px 0px 40px;
+	}
+
+	.btn-small{
+		width: 178px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	.button-gestion{
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	.button-eliminar{
+		background: red;
+		border: 1px solid #cf1717;
 	}
 
 	/*Central*/
@@ -273,4 +294,10 @@
 		background: #222222;
 		border-top: 4px solid #01b1ea;
 	}
+	
 
+	/*table*/
+
+	.table{
+		border-left: 1px solid #555;
+	}
