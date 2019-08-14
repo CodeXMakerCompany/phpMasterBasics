@@ -5,5 +5,6 @@
   		public function index(){
   			echo "Controlador pedido, Accion index";
   		}
+
   		
   	}

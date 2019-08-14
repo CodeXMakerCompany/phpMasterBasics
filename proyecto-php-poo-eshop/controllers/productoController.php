@@ -12,6 +12,23 @@
   			require_once 'views/productos/destacados.php';
   		}
 
+      public function ver(){
+
+        if (isset($_GET['id'])) {
+        
+        $id = $_GET['id'];  
+
+        $producto = new productoModel();
+        $producto->setId($id);
+
+        $pro = $producto->mostrarUnProducto();
+
+        }
+
+        require_once  'views/productos/ver.php';
+
+      }
+
   		public function gestion() {
 
         utils::isAdmin();

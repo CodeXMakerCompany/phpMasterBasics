@@ -20,7 +20,7 @@ class productoModel{
 	}
 
 
-
+    
     /**
      * @return mixed
      */
