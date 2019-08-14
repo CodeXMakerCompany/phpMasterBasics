@@ -354,3 +354,10 @@
 		display: block;
 		width: 200px;
 	}
+	
+	/*pedidoFinalizado*/
+
+	.clipboard{
+		width: 180px !important;
+		border:0 !important;
+	}
