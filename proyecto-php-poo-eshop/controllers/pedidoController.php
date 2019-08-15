@@ -71,6 +71,10 @@
 
   			}
 
+        if(isset($_SESSION['carrito'])){
+        utils::deleteSession('carrito');
+        }
+
   			require_once 'views/pedido/confirmado.php';
   		}
 

@@ -235,6 +235,12 @@
 		border: 1px solid #cf1717;
 	}
 
+	.updown-unidades .button{
+		display: block;
+		width: 20px;
+		margin: -5px;
+	}
+
 	/*Central*/
 
 	#central{

@@ -1,5 +1,5 @@
 <h1>Carrito de la compra</h1>
-
+<?php if (isset($_SESSION['carrito']) && $_SESSION['carrito'] !=null) : ?>
 <table class="table">
   <thead>
   	<tr>
@@ -7,6 +7,7 @@
 		<th scope="col">Nombre</th>
 		<th scope="col">Precio</th>
 		<th scope="col">Unidades</th>
+		<th class="col">Eliminar</th>
 	</tr>
 	<?php 
 		foreach ($carrito as $indice => $elemento): 
@@ -30,10 +31,32 @@
 			<td>
 				<!-- Al ser un array se entra con esta sintaxis -->
 				
-				<?=$elemento['unidades']?>
+				
+				<div class="updown-unidades">
+					<div class="row">
+						<div class="col-md-4">
+							<a href="<?=base_url?>carrito/down&index=<?=$indice?>" class="button" >-</a>
+						</div>
+						<div class="col-md-4">
+							<?=$elemento['unidades']?>
+						</div>
+						<div class="col-md-4">
+							<a href="<?=base_url?>carrito/up&index=<?=$indice?>" class="button" >+</a>
+						</div>
+					</div>
+					
+					
+				</div>
+				
 
 			</td>
-
+			<td>
+				<center>
+				<div class="col-md-6">
+				<a href="<?=base_url?>carrito/remove&index=<?=$indice?>" class="btn btn-danger button" style="size: 50px;">Quitar producto</a>
+				</div>
+				</center>
+			</td>
 		</tr>
 	<?php endforeach; ?>	
   </tbody>
@@ -43,7 +66,7 @@
 	<div class="row">
 
 		<div class="col-md-6">
-			
+			<a href="<?=base_url?>carrito/delete_all" class="btn btn-danger button button_pedido">Eliminar todo(s)</a>
 		</div>
 	
 		<div class="col-md-6">
@@ -54,3 +77,6 @@
 	
 	</div>
 </div>
+<?php else: ?>
+	<p>El carrito esta vacio, añade algun producto</p>
+<?php endif; ?>
