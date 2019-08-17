@@ -11,7 +11,9 @@
 	</tr>
 	<?php 
 		foreach ($carrito as $indice => $elemento): 
-		$producto = $elemento['producto'];	
+		$producto = $elemento['producto'];
+
+			
 	?>
 		<tr>
 			
