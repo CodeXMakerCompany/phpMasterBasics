@@ -28,4 +28,17 @@ class peliculaController extends Controller
     	return redirect()->route('detalle.pelicula');
     }
 
+    public function formulario(){
+
+        return view('pelicula.formulario');
+    }
+
+    public function recibirData(Request $request){
+
+        $nombre = $request->input('nombre');
+        $email = $request->input('email');
+
+        return "El nombre es : $nombre y el email es: $email";
+    }
+
 }

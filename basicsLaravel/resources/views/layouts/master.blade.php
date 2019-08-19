@@ -2,10 +2,7 @@
 	<!DOCTYPE html>
 	<html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Titulo - @yield('title')</title>
-	</head>
+	@extends('layouts.head')
 
 	<body>
 		<p>datos heredados de master.blade</p>

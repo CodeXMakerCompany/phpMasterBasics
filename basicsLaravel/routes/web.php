@@ -27,7 +27,25 @@ Route::get('/detalle/{year?}',[
 //reedirigir
 Route::get('/reedirigir', 'peliculaController@index');
 
-Route::resource('/usuario', 'usuarioController');
+
+
+Route::get('/formulario', 'peliculaController@formulario');
+Route::post('/recibir', 'peliculaController@recibirData');
+
+
+//Rutas usuario
+Route::group(['prefix'=>'usuario'], function(){
+	Route::get('/index','usuarioController@index');
+	Route::get('/details/{id}','usuarioController@details');
+	Route::get('/create', 'usuarioController@create');
+	Route::post('/save', 'usuarioController@save');
+	Route::get('/delete/{id}', 'usuarioController@delete');
+	Route::get('/edit/{id}', 'usuarioController@edit');
+	Route::post('update', 'usuarioController@update');
+});
+
+
+
 
 /*
 	GET: Conseguir datos
